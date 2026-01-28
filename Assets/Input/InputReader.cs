@@ -10,6 +10,7 @@ public class InputReader : ScriptableObject, PlayerInput.IPlayerActions
     public Action<Vector2> lookEvent;
     public Action attackEvent;
     public Action interactEvent;
+    public Action dropEvent;
     public Action jumpEvent;
 
     private PlayerInput input;
@@ -33,5 +34,6 @@ public class InputReader : ScriptableObject, PlayerInput.IPlayerActions
     public void OnLook(InputAction.CallbackContext ctx) => lookEvent?.Invoke(ctx.ReadValue<Vector2>());
     public void OnAttack(InputAction.CallbackContext ctx) { if (ctx.performed) attackEvent?.Invoke(); }
     public void OnInteract(InputAction.CallbackContext ctx) { if (ctx.performed) interactEvent?.Invoke(); }
+    public void OnDrop(InputAction.CallbackContext ctx) { if (ctx.performed) dropEvent?.Invoke(); }
     public void OnJump(InputAction.CallbackContext ctx) { if (ctx.performed) jumpEvent?.Invoke(); }
 }

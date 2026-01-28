@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerMovementConfig
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  sensitivity: 0.2
+  sensitivity: 0.1
   jumpHeight: 1.5
   gravity: -12
   maxViewAngle: 85
