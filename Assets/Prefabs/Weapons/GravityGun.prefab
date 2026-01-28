@@ -8,10 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3504260983159598146, guid: 4a6822df3ad3b4146a464f99fbe1aaad, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 9cadc8c5021163743861056c6e0fb83a, type: 2}
     - target: {fileID: 4661910706035839315, guid: 4a6822df3ad3b4146a464f99fbe1aaad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -26,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4661910706035839315, guid: 4a6822df3ad3b4146a464f99fbe1aaad, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4661910706035839315, guid: 4a6822df3ad3b4146a464f99fbe1aaad, type: 3}
       propertyPath: m_LocalRotation.x
@@ -38,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4661910706035839315, guid: 4a6822df3ad3b4146a464f99fbe1aaad, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4661910706035839315, guid: 4a6822df3ad3b4146a464f99fbe1aaad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -50,11 +46,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4661910706035839315, guid: 4a6822df3ad3b4146a464f99fbe1aaad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 7716308457319496628, guid: 4a6822df3ad3b4146a464f99fbe1aaad, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a3e776e487850447a4da88030ea60cc, type: 2}
+    - target: {fileID: 7716308457319496628, guid: 4a6822df3ad3b4146a464f99fbe1aaad, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 7362758508261770045, guid: 4505f2cbbd162d04f9699447beb3cca0, type: 3}
     - target: {fileID: 8888344494308871536, guid: 4a6822df3ad3b4146a464f99fbe1aaad, type: 3}
       propertyPath: m_Name
-      value: Weapon2
+      value: GravityGun
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -14,8 +14,8 @@ TagManager:
   - UICharacter
   - Weapons
   - Player
-  - 
-  - 
+  - Interactable
+  - Projectiles
   - 
   - 
   - 
