@@ -257,7 +257,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2031013954}
@@ -1348,6 +1348,8 @@ GameObject:
   - component: {fileID: 1142106821}
   - component: {fileID: 1142106820}
   - component: {fileID: 1142106819}
+  - component: {fileID: 1142106824}
+  - component: {fileID: 1142106823}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1447,6 +1449,46 @@ Transform:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1142106823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142106818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10999bbe4d8ab647a6ec321a3b4c200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputReader: {fileID: 11400000, guid: 0bfdee1bab8c2be4492c4113289bf613, type: 2}
+  stats: {fileID: 11400000, guid: 8160b8dd19adda54eb455740282e30d7, type: 2}
+  cameraTransform: {fileID: 330585546}
+--- !u!143 &1142106824
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142106818}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1418565470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +1997,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2077249456}
   - component: {fileID: 2077249455}
-  - component: {fileID: 2077249454}
   - component: {fileID: 2077249453}
   m_Layer: 6
   m_Name: UICamera
@@ -2008,14 +2049,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &2077249454
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077249452}
-  m_Enabled: 1
 --- !u!20 &2077249455
 Camera:
   m_ObjectHideFlags: 0
