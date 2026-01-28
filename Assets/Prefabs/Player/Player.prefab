@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1381916977557036567}
   - component: {fileID: 14816500095870447}
   - component: {fileID: 4513986928745691159}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -28,10 +28,11 @@ Transform:
   m_GameObject: {fileID: 3323646035171821095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 1, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6268968774828730154}
   m_Father: {fileID: 4737144795434708362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1381916977557036567
@@ -146,7 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6268968774828730154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GripPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,12 +162,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3866631785164782168}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.8}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.27, y: -0.35, z: 0.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4737144795434708362}
+  m_Father: {fileID: 8679729899571803210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9178763235317743136
 GameObject:
@@ -183,7 +184,7 @@ GameObject:
   - component: {fileID: 5764199692130197157}
   - component: {fileID: 320864711421215805}
   - component: {fileID: 8256776125082103266}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +205,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8679729899571803210}
-  - {fileID: 6268968774828730154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4489936449541794558
@@ -304,7 +304,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.5
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -338,3 +338,6 @@ MonoBehaviour:
   inputReader: {fileID: 11400000, guid: 0bfdee1bab8c2be4492c4113289bf613, type: 2}
   gripPoint: {fileID: 6268968774828730154}
   detectionDistance: 2
+  weaponLayer:
+    serializedVersion: 2
+    m_Bits: 128

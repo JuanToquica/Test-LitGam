@@ -19,5 +19,3 @@ MonoBehaviour:
     clip: {fileID: -203655887218126122, guid: 96d9007fda8067246b1ce461dc6da01e, type: 3}
   - danceName: Hip Hop
     clip: {fileID: -203655887218126122, guid: 23dd7a2d2bb71134cbeff286bb78c04a, type: 3}
-  - danceName: regueton
-    clip: {fileID: -203655887218126122, guid: 23dd7a2d2bb71134cbeff286bb78c04a, type: 3}

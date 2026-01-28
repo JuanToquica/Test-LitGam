@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b002fe04d2206ac42b53d680eb0a0dfc, type: 3}
   m_Name: PlayerMovementConfig
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  sensitivity: 0.1
-  jumpHeight: 1.5
-  gravity: -12
+  moveSpeed: 8
+  sensitivity: 0.08
+  jumpHeight: 2
+  gravity: -15
   maxViewAngle: 85
