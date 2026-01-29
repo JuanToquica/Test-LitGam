@@ -1,9 +1,8 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class GravityProjectile : MonoBehaviour
+public class GravityProjectile : ProjectileBase
 {
     private float detectionRadius;
     private float centripetalAcceleration;
@@ -74,11 +73,6 @@ public class GravityProjectile : MonoBehaviour
         Vector3 tangentialDir = Vector3.Cross(direction.normalized, orbitAxis);
 
         rb.AddForce(tangentialDir * orbitalSpeed, ForceMode.VelocityChange);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Destroy(gameObject);
     }
 
     private void OnDestroy()

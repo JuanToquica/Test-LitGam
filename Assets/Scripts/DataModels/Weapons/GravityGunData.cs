@@ -1,14 +1,12 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GravityGunData", menuName = "ScriptableObject/GravityGunData")]
-public class GravityGunData : ScriptableObject
+public class GravityGunData : WeaponDataBase
 {
-    public float cooldown;
+    [Header("Gravity Gun Settings")]
     public float launchForce;
-    public GameObject projectilePrefab;
     public float detectionRadius;
     public float centripetalAcceleration;
     public float orbitalSpeed;
-    public float maxLifetime;
-    public LayerMask affectedLayer; 
+    public LayerMask affectedLayer;
 }
