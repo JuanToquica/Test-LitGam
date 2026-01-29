@@ -8,4 +8,5 @@ public class PlayerMovementConfig : ScriptableObject
     public float jumpHeight;
     public float gravity;
     [Range(0, 90)] public float maxViewAngle;
+    public float pushPower;
 }

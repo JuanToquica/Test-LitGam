@@ -17,3 +17,4 @@ MonoBehaviour:
   jumpHeight: 2
   gravity: -15
   maxViewAngle: 85
+  pushPower: 2

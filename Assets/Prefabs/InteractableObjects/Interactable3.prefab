@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 2877638217007001506, guid: 8985c395da9d4c149af10f26ed807c77, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2877638217007001506, guid: 8985c395da9d4c149af10f26ed807c77, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3101976220716451656, guid: 8985c395da9d4c149af10f26ed807c77, type: 3}
       propertyPath: m_Name
       value: Interactable3
