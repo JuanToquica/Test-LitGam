@@ -49,8 +49,8 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        Vector3 movement = transform.right * moveInput.x + transform.forward * moveInput.y;
-        controller.Move(movement * stats.moveSpeed * Time.deltaTime);
+        Vector3 movementDirection = transform.right * moveInput.x + transform.forward * moveInput.y;
+        controller.Move(movementDirection * stats.moveSpeed * Time.deltaTime);
     }
 
     private void ApplyGravity()
@@ -59,7 +59,13 @@ public class PlayerController : MonoBehaviour
             verticalVelocity = -2;
         else
             verticalVelocity += stats.gravity * Time.deltaTime;
-        controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
+
+        CollisionFlags flags = controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
+
+        if ((flags & CollisionFlags.Above) != 0 && verticalVelocity > 0)
+        {
+            verticalVelocity = 0;
+        }
     }
 
     private void ApplyRotation()

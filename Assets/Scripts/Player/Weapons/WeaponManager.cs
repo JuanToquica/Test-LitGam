@@ -8,8 +8,8 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private LayerMask weaponLayer;
 
     private Camera _mainCamera;
-    private IWeapon currentWeapon;
-    private IWeapon detectedWeapon;
+    private WeaponControllerBase currentWeapon;
+    private WeaponControllerBase detectedWeapon;
 
     private void Awake()
     {
@@ -41,7 +41,7 @@ public class WeaponManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, detectionDistance, weaponLayer))
         {
-            if (hit.collider.TryGetComponent(out IWeapon weapon))
+            if (hit.collider.TryGetComponent(out WeaponControllerBase weapon))
             {
                 detectedWeapon = weapon;
                 return;
@@ -58,7 +58,7 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    private void EquipWeapon(IWeapon newWeapon)
+    private void EquipWeapon(WeaponControllerBase newWeapon)
     {
         if (newWeapon == currentWeapon) return;
 

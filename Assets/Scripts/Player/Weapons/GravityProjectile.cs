@@ -9,6 +9,12 @@ public class GravityProjectile : ProjectileBase
     private float orbitalSpeed;
     private LayerMask affectedLayer;
     private HashSet<Rigidbody> affectedObjects;
+    private Rigidbody projectileRb;
+
+    private void Awake()
+    {
+        projectileRb = GetComponent<Rigidbody>();
+    }
 
     public void Initialize(float radius, float acceleration, float orbitalSpeed, float lifetime, LayerMask layer)
     {
@@ -33,24 +39,35 @@ public class GravityProjectile : ProjectileBase
 
         foreach (Collider hit in colliders)
         {
-            Rigidbody rb = hit.GetComponent<Rigidbody>();
-            if (rb == null) continue;
+            Rigidbody targetRb = hit.GetComponent<Rigidbody>();
+            if (targetRb == null) continue;
 
             Vector3 direction = transform.position - hit.transform.position;
-
-            if (!affectedObjects.Contains(rb))
-            {
-                ApplyOrbitalSpeed(rb, direction);
-                affectedObjects.Add(rb);
-            }
-
-            //Apply Centripetal Acceleration           
             float distance = direction.magnitude;
             float attractionFactor = Mathf.Clamp(1 - (distance / detectionRadius), 0, 1);
-            Vector3 finalCentripetalAcceleration = direction.normalized * centripetalAcceleration * attractionFactor;
 
-            rb.AddForce(finalCentripetalAcceleration, ForceMode.Acceleration);
-            processedObjects.Add(rb);
+            if (!affectedObjects.Contains(targetRb))
+            {
+                ApplyOrbitalSpeed(targetRb, direction);
+                affectedObjects.Add(targetRb);
+            }
+
+            // if the object is in oposite direction of the projectile, move the point of attraction forward to improve the
+            // tracking of objects to the projectile
+            float alignmentFactor = Vector3.Dot(transform.forward, direction.normalized);
+            float attractionOffset = 0;
+            if (alignmentFactor < -0.5f && projectileRb.linearVelocity.magnitude > 3)
+            {                  
+                attractionOffset = (detectionRadius / 4) * Mathf.Abs(alignmentFactor);
+            }
+
+            //Calculate Centripetal Acceleration 
+            Vector3 adjustedDirection = (direction + transform.forward * attractionOffset).normalized; 
+            Vector3 finalCentripetalAcceleration = adjustedDirection * centripetalAcceleration * attractionFactor;
+            
+            targetRb.AddForce(finalCentripetalAcceleration, ForceMode.Acceleration);
+
+            processedObjects.Add(targetRb);
         }
         HashSet<Rigidbody> objectsThatExited = new HashSet<Rigidbody>(affectedObjects);
         objectsThatExited.ExceptWith(processedObjects);
@@ -65,14 +82,14 @@ public class GravityProjectile : ProjectileBase
         }
     }
 
-    private void ApplyOrbitalSpeed(Rigidbody rb, Vector3 direction)
+    private void ApplyOrbitalSpeed(Rigidbody targetRb, Vector3 direction)
     {
-        rb.useGravity = false;
+        targetRb.useGravity = false;
 
         Vector3 orbitAxis = transform.forward;
         Vector3 tangentialDir = Vector3.Cross(direction.normalized, orbitAxis);
 
-        rb.AddForce(tangentialDir * orbitalSpeed, ForceMode.VelocityChange);
+        targetRb.AddForce(tangentialDir * orbitalSpeed, ForceMode.VelocityChange);
     }
 
     private void OnDestroy()

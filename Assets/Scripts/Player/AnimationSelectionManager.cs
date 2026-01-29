@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,17 +15,25 @@ public class AnimationSelectionManager : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private GameObject danceBTNPrefab;
     [SerializeField] private RectTransform BTNContainer;
+    private List<Button> spawnedButtons = new List<Button>();
     private int currentDance = -1;
 
     private void Start()
     {
         CreateDanceButtons();
-        PlayDance(0);
+        PlayDance(danceLibrary.GetIndexByClip(playerSelection.selectedClip)); //Play saved clip, if it's null, play first dance
     }
 
     public void PlayDance(int index)
     {
         if (currentDance == index) return;
+
+        if (currentDance >= 0 && currentDance < spawnedButtons.Count)
+            spawnedButtons[currentDance].transform.localScale = Vector3.one;
+
+        if (index >= 0 && index < spawnedButtons.Count)
+            spawnedButtons[index].transform.localScale = Vector3.one * 1.2f;
+
         currentDance = index;
         AnimatorOverrideController overrideController = playerAnimator.runtimeAnimatorController as AnimatorOverrideController;
 
@@ -43,6 +52,7 @@ public class AnimationSelectionManager : MonoBehaviour
 
             GameObject btn = Instantiate(danceBTNPrefab, BTNContainer);
             Button btnComponent = btn.GetComponent<Button>();
+            spawnedButtons.Add(btnComponent);
 
             btnComponent.onClick.AddListener(() => PlayDance(index));
 

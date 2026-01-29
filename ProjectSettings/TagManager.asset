@@ -16,8 +16,8 @@ TagManager:
   - Player
   - Interactable
   - Projectiles
-  - 
-  - 
+  - GravityProjectile
+  - Environment
   - 
   - 
   - 

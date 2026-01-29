@@ -4,7 +4,7 @@ public class GravityGunController : WeaponControllerBase<GravityGunData>
 {
     public override void Shoot()
     {
-        if (Time.time < lastFireTime + data.cooldown) return;
+        if (!CanShoot()) return;
         GameObject projectile = Instantiate(data.projectilePrefab, firePoint.position, firePoint.rotation);
 
         if (projectile.TryGetComponent(out Rigidbody projectileRb))

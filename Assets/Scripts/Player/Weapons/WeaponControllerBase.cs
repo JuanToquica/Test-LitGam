@@ -1,6 +1,14 @@
 using UnityEngine;
 
-public abstract class WeaponControllerBase<T> : MonoBehaviour, IWeapon where T : WeaponDataBase
+public abstract class WeaponControllerBase : MonoBehaviour
+{
+    public abstract void Shoot();
+    protected abstract bool CanShoot();
+    public abstract void PickUp(Transform gripPoint);
+    public abstract void Drop();
+}
+
+public abstract class WeaponControllerBase<T> : WeaponControllerBase where T : WeaponDataBase
 {
     [SerializeField] protected T data;
     [SerializeField] protected Transform firePoint;
@@ -12,9 +20,21 @@ public abstract class WeaponControllerBase<T> : MonoBehaviour, IWeapon where T :
         rb = GetComponent<Rigidbody>();
     }
 
-    public abstract void Shoot();
+    public override abstract void Shoot();
 
-    public void PickUp(Transform gripPoint)
+    protected override bool CanShoot()
+    {
+        if (Time.time < lastFireTime + data.cooldown) return false;
+
+        Vector3 origin = Camera.main.transform.position;
+        Vector3 target = firePoint.position;
+        Vector3 direction = target - origin;
+        float distance = direction.magnitude;
+
+        return !Physics.Raycast(origin, direction, distance, 1 << 12); //Environment layer
+    }
+
+    public override void PickUp(Transform gripPoint)
     {
         rb.isKinematic = true;
         rb.useGravity = false;
@@ -25,7 +45,7 @@ public abstract class WeaponControllerBase<T> : MonoBehaviour, IWeapon where T :
         transform.localRotation = Quaternion.identity;
     }
 
-    public void Drop()
+    public override void Drop()
     {
         transform.SetParent(null);
         rb.isKinematic = false;

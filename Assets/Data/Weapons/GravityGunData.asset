@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: GravityGunData
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7362758508261770045, guid: 4505f2cbbd162d04f9699447beb3cca0, type: 3}
+  cooldown: 1
+  maxLifetime: 10
+  launchForce: 10
+  detectionRadius: 10
+  centripetalAcceleration: 150
+  orbitalSpeed: 15
   affectedLayer:
     serializedVersion: 2
     m_Bits: 512
-  cooldown: 1
-  maxLifetime: 10
-  launchForce: 1
-  detectionRadius: 5
-  centripetalAcceleration: 1000
-  orbitalSpeed: 200

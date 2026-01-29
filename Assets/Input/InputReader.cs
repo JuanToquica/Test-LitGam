@@ -12,6 +12,7 @@ public class InputReader : ScriptableObject, PlayerInput.IPlayerActions
     public Action interactEvent;
     public Action dropEvent;
     public Action jumpEvent;
+    public Action escapeEvent;
 
     private PlayerInput input;
 
@@ -36,4 +37,5 @@ public class InputReader : ScriptableObject, PlayerInput.IPlayerActions
     public void OnInteract(InputAction.CallbackContext ctx) { if (ctx.performed) interactEvent?.Invoke(); }
     public void OnDrop(InputAction.CallbackContext ctx) { if (ctx.performed) dropEvent?.Invoke(); }
     public void OnJump(InputAction.CallbackContext ctx) { if (ctx.performed) jumpEvent?.Invoke(); }
+    public void OnEscape(InputAction.CallbackContext ctx) { if (ctx.performed) escapeEvent?.Invoke(); }
 }

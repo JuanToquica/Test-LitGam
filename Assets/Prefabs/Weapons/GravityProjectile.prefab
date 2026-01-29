@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5983950870699433688}
   - component: {fileID: 4365598312100116874}
   - component: {fileID: 8744604738550470976}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: GravityProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
