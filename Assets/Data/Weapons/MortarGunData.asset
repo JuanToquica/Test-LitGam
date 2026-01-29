@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7362758508261770045, guid: a5eac55f8e430304e825c5f2365e012f, type: 3}
   cooldown: 1
-  maxLifetime: 2
+  maxLifetime: 3
   linePoints: 50
   timeBetweenPoints: 0.1
-  launchAngle: 22
-  launchForce: 20
+  launchForce: 10
+  launchAngle: 50
   collisionMask:
     serializedVersion: 2
     m_Bits: 631

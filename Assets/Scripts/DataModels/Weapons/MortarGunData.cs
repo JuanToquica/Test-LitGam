@@ -8,7 +8,7 @@ public class MortarGunData : WeaponDataBase
     public float timeBetweenPoints;
 
     [Header("Mortar Gun Settings")]
-    [Range (0, 50)] public float launchAngle;
-    [Min (0)] public float launchForce;    
+    [Min(0)] public float launchForce;
+    [Range (0, 90)] public float launchAngle;
     public LayerMask collisionMask;
 }

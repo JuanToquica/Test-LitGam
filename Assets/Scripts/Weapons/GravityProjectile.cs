@@ -44,7 +44,7 @@ public class GravityProjectile : ProjectileBase
 
             Vector3 direction = transform.position - hit.transform.position;
             float distance = direction.magnitude;
-            float attractionFactor = Mathf.Clamp(1 - (distance / detectionRadius), 0, 1);
+            float attractionFactor = Mathf.Clamp01(1 - (distance / detectionRadius));
 
             if (!affectedObjects.Contains(targetRb))
             {

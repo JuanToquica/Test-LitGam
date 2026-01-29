@@ -9,7 +9,7 @@ public class GravityGunController : WeaponControllerBase<GravityGunData>
 
         if (projectile.TryGetComponent(out Rigidbody projectileRb))
         {
-            projectileRb.AddForce(firePoint.forward * data.launchForce, ForceMode.Impulse);
+            projectileRb.AddForce(firePoint.forward * data.launchSpeed, ForceMode.VelocityChange);
         }
         if (projectile.TryGetComponent(out GravityProjectile script))
         {

@@ -9,16 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be4feed1e46d7e41ab2d4e44c1f6312, type: 3}
-  m_Name: GravityGunData
+  m_Script: {fileID: 11500000, guid: deafbc3657095044b9a661d00ff22d03, type: 3}
+  m_Name: SuctionBazookaData
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 7362758508261770045, guid: 4505f2cbbd162d04f9699447beb3cca0, type: 3}
+  projectilePrefab: {fileID: 7362758508261770045, guid: 8672fd052d399e7499765f94910990f9, type: 3}
   cooldown: 1
-  maxLifetime: 10
-  launchSpeed: 10
+  maxLifetime: 3
+  launchSpeed: 25
   detectionRadius: 10
-  centripetalAcceleration: 150
-  orbitalSpeed: 20
+  explosionForce: 15
   affectedLayer:
     serializedVersion: 2
     m_Bits: 512
